@@ -37,10 +37,11 @@ Double-click the **top-left button** in the pause screen to access the utility m
 
 ### What You **Cannot** Do:  
 - Edit and publish the pack online.  
-- Steal UI JSON code and share it.  
-- Associate the pack with Luconia Productions.  
+- Steal UI JSON code and share it.
+
+### Affiliated with luconia productions
 
 ---
 
 ## 🤝 Special Thanks  
-This pack was created by **HJN** and **ERR0R**. A huge thank you to everyone who contributed to this project!  
+This pack was created by **HJN**, **ERR0R**, **Pepe** and **Utility Club Team**. A huge thank you to everyone who contributed to this project!  
