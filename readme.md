@@ -17,7 +17,10 @@ Double-click the **top-left button** in the pause screen to access the utility m
 ---
 
 ## 🎥 Showcase  
-*(Add screenshots or videos here)*  
+![img1](https://github.com/user-attachments/assets/ab46bc7d-a7e3-4796-8827-a2c529cbab72)
+)
+![img2](https://r2.mcpedl.com/submissions/192444/images/utility-ui-v12_4.png)
+![img3](https://r2.mcpedl.com/submissions/181909/images/utility-ui-new-update--new-beginning_3.png)
 
 ---
 
