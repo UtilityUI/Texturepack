@@ -1,0 +1,27 @@
+{
+    "format_version": "1.10.0",
+    "animation_controllers": {
+        "controller.animation.direction_hud": {
+            "initial_state": "camera_rotation",
+            "states": {
+                "default": {
+                    "transitions": [
+                        {
+                            "camera_rotation": "query.is_in_ui"
+                        }
+                    ]
+                },
+                "camera_rotation": {
+                    "on_entry": [
+                        "variable.direction_hud = query.camera_rotation(1);"
+                    ],
+                    "transitions": [
+                        {
+                            "default": "1"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+  "ui_defs": [
+    "ui/utility_ui/renderers.json",
+    "ui/utility_ui/tooltips.json",
+    "ui/utility_ui/inventory_overlay.json"
+  ]
+}

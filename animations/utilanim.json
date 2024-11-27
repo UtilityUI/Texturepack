@@ -1,0 +1,24 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.utilanim": {
+			"loop": true,
+			"bones": {
+				"capegeo": {
+					"rotation": [
+						"math.lerp(0.0, -126.0, query.cape_flap_amount) - 6.0",
+						0,
+						0
+					],
+					"position": [
+						0,
+						0,
+						"query.armor_texture_slot(1) == 5 ? 99999999999999"
+					],
+					"scale": 0.995
+				}
+		
+			}
+		}
+	}
+}

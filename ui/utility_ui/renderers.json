@@ -1,0 +1,1490 @@
+{
+  "namespace": "renderers",
+
+"armor_hud_notmovable@hud.panel": {
+        "size": [ "100%", "100%" ],
+        "controls": [
+            {
+                "armor_hud_bg@armor_hud_bg": {
+                }
+            },
+            {
+                "armorhud_player_renderer@armorhud_player_renderer": {
+                }
+            }
+        ]
+    },
+
+    "asa_durability_percent": {
+		"anchor_from": "bottom_left",
+		"anchor_to": "bottom_left",
+        "$asa_total_bar": "#item_durability_total_amount",
+        "$asa_current_bar": "#item_durability_current_amount",
+        "bindings": [
+            {
+                "binding_name": "$asa_total_bar",
+                "binding_type": "collection",
+                "binding_collection_name": "$asa_renderer_collection_name"
+            },
+            {
+                "binding_name": "$asa_current_bar",
+                "binding_type": "collection",
+                "binding_collection_name": "$asa_renderer_collection_name"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "((($asa_current_bar / $asa_total_bar) > $min_durability) and (($asa_current_bar / $asa_total_bar) < $max_durability)) or (($asa_current_bar / $asa_total_bar) = $min_durability)",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+	
+	"durability_viewer_base_panel": {
+		"type": "panel",
+		"controls":[
+			{
+				"asa_item_durability_percent@asa_item_durability_percent": {}
+			}
+		]
+	},
+
+    "asa_item_durability_percent": {
+        "type": "stack_panel",
+		"anchor_from": "bottom_left",
+		"anchor_to": "bottom_left",
+        "size": [ "100%cm", "100%cm" ],
+        "collection_name": "hotbar_items",
+        "controls": [
+            {
+                "1@asa_dura_panel": {
+                    "collection_index": 0
+                }
+            },
+            {
+                "2@asa_dura_panel": {
+                    "collection_index": 1
+                }
+            },
+            {
+                "3@asa_dura_panel": {
+                    "collection_index": 2
+                }
+            },
+            {
+                "4@asa_dura_panel": {
+                    "collection_index": 3
+                }
+            },
+            {
+                "4@asa_dura_panel": {
+                    "collection_index": 4
+                }
+            },
+            {
+                "4@asa_dura_panel": {
+                    "collection_index": 5
+                }
+            },
+            {
+                "4@asa_dura_panel": {
+                    "collection_index": 6
+                }
+            },
+            {
+                "4@asa_dura_panel": {
+                    "collection_index": 7
+                }
+            },
+            {
+                "4@asa_dura_panel": {
+                    "collection_index": 8
+                }
+            }
+        ]
+    },
+
+    "asa_dura_panel": {
+        "type": "panel",
+		"anchor_from": "bottom_left",
+		"anchor_to": "bottom_left",
+        "size": [ 0, 0 ],
+        "bindings": [
+            {
+                "binding_name": "#slot_selected",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "1@asa_durability_item_with_bg": {}
+            }
+        ]
+    },
+
+    "asa_durability_item_with_bg": {
+        "type": "image",
+        "size": [ "100%c + 10px", 16 ],
+        "texture": "textures/utility_components/bg_utility_ui",
+		"layer": 0,
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "offset": [ 4, -4 ],
+        "alpha": 0.65,
+        "controls": [
+			{
+        		"1@asa_dura_panel_percent": {"layer":1}
+			}
+        ]
+    },
+
+    "asa_dura_panel_percent": {
+        "type": "stack_panel",
+        "size": [ "100%c", "100%cm" ],
+        "orientation": "horizontal",
+        "$asa_renderer_collection_name|default": "hotbar_items",
+        "controls": [
+            {
+                "asa_durability@asa_durability_percent_panel": {}
+            }
+        ]
+    },
+
+    "asa_durability_text": {
+        "type": "panel",
+        "size": [ "100%c", "100%cm" ],
+        "controls": [
+            {
+                "asa_percent@asa_durability_percent": {
+                    "type": "label",
+                    "max_size": [ "default", 10 ],
+                    "text": "$asa_durability_text",
+                    "color": "$asa_durability_color",
+                    "font_scale_factor": 1,
+                    "shadow": true,
+                    "localize": false
+                }
+            }
+        ]
+    },
+
+    "asa_durability_percent_panel": {
+        "type": "panel",
+        "size": [
+            "100%c",
+            "100%cm"
+        ],
+        "controls": [
+            {
+                "0@asa_durability_text": {
+                    "$asa_durability_text": "0%",
+                    "$min_durability": 0.00,
+                    "$max_durability": 0.01,
+                    "$asa_durability_color": [ 1.0, 0.0, 0 ]
+                }
+            },
+            {
+                "1@asa_durability_text": {
+                    "$asa_durability_text": "1%",
+                    "$min_durability": 0.01,
+                    "$max_durability": 0.02,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "2@asa_durability_text": {
+                    "$asa_durability_text": "2%",
+                    "$min_durability": 0.02,
+                    "$max_durability": 0.03,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "3@asa_durability_text": {
+                    "$asa_durability_text": "3%",
+                    "$min_durability": 0.03,
+                    "$max_durability": 0.04,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "4@asa_durability_text": {
+                    "$asa_durability_text": "4%",
+                    "$min_durability": 0.04,
+                    "$max_durability": 0.05,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "5@asa_durability_text": {
+                    "$asa_durability_text": "5%",
+                    "$min_durability": 0.05,
+                    "$max_durability": 0.06,
+                    "$asa_durability_color": [ 1.0, 0.1, 0 ]
+                }
+            },
+            {
+                "6@asa_durability_text": {
+                    "$asa_durability_text": "6%",
+                    "$min_durability": 0.06,
+                    "$max_durability": 0.07,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "7@asa_durability_text": {
+                    "$asa_durability_text": "7%",
+                    "$min_durability": 0.07,
+                    "$max_durability": 0.08,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "8@asa_durability_text": {
+                    "$asa_durability_text": "8%",
+                    "$min_durability": 0.08,
+                    "$max_durability": 0.09,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "9@asa_durability_text": {
+                    "$asa_durability_text": "9%",
+                    "$min_durability": 0.09,
+                    "$max_durability": 0.10,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "10@asa_durability_text": {
+                    "$asa_durability_text": "10%",
+                    "$min_durability": 0.10,
+                    "$max_durability": 0.11,
+                    "$asa_durability_color": [ 1.0, 0.2, 0 ]
+                }
+            },
+            {
+                "11@asa_durability_text": {
+                    "$asa_durability_text": "11%",
+                    "$min_durability": 0.11,
+                    "$max_durability": 0.12,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "12@asa_durability_text": {
+                    "$asa_durability_text": "12%",
+                    "$min_durability": 0.12,
+                    "$max_durability": 0.13,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "13@asa_durability_text": {
+                    "$asa_durability_text": "13%",
+                    "$min_durability": 0.13,
+                    "$max_durability": 0.14,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "14@asa_durability_text": {
+                    "$asa_durability_text": "14%",
+                    "$min_durability": 0.14,
+                    "$max_durability": 0.15,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "15@asa_durability_text": {
+                    "$asa_durability_text": "15%",
+                    "$min_durability": 0.15,
+                    "$max_durability": 0.16,
+                    "$asa_durability_color": [ 1.0, 0.3, 0 ]
+                }
+            },
+            {
+                "16@asa_durability_text": {
+                    "$asa_durability_text": "16%",
+                    "$min_durability": 0.16,
+                    "$max_durability": 0.17,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "17@asa_durability_text": {
+                    "$asa_durability_text": "17%",
+                    "$min_durability": 0.17,
+                    "$max_durability": 0.18,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "18@asa_durability_text": {
+                    "$asa_durability_text": "18%",
+                    "$min_durability": 0.18,
+                    "$max_durability": 0.19,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "19@asa_durability_text": {
+                    "$asa_durability_text": "19%",
+                    "$min_durability": 0.19,
+                    "$max_durability": 0.20,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "20@asa_durability_text": {
+                    "$asa_durability_text": "20%",
+                    "$min_durability": 0.20,
+                    "$max_durability": 0.21,
+                    "$asa_durability_color": [ 1.0, 0.4, 0 ]
+                }
+            },
+            {
+                "21@asa_durability_text": {
+                    "$asa_durability_text": "21%",
+                    "$min_durability": 0.21,
+                    "$max_durability": 0.22,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "22@asa_durability_text": {
+                    "$asa_durability_text": "22%",
+                    "$min_durability": 0.22,
+                    "$max_durability": 0.23,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "23@asa_durability_text": {
+                    "$asa_durability_text": "23%",
+                    "$min_durability": 0.23,
+                    "$max_durability": 0.24,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "24@asa_durability_text": {
+                    "$asa_durability_text": "24%",
+                    "$min_durability": 0.24,
+                    "$max_durability": 0.25,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "25@asa_durability_text": {
+                    "$asa_durability_text": "25%",
+                    "$min_durability": 0.25,
+                    "$max_durability": 0.26,
+                    "$asa_durability_color": [ 1.0, 0.5, 0 ]
+                }
+            },
+            {
+                "26@asa_durability_text": {
+                    "$asa_durability_text": "26%",
+                    "$min_durability": 0.26,
+                    "$max_durability": 0.27,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "27@asa_durability_text": {
+                    "$asa_durability_text": "27%",
+                    "$min_durability": 0.27,
+                    "$max_durability": 0.28,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "28@asa_durability_text": {
+                    "$asa_durability_text": "28%",
+                    "$min_durability": 0.28,
+                    "$max_durability": 0.29,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "29@asa_durability_text": {
+                    "$asa_durability_text": "29%",
+                    "$min_durability": 0.29,
+                    "$max_durability": 0.30,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "30@asa_durability_text": {
+                    "$asa_durability_text": "30%",
+                    "$min_durability": 0.30,
+                    "$max_durability": 0.31,
+                    "$asa_durability_color": [ 1.0, 0.6, 0 ]
+                }
+            },
+            {
+                "31@asa_durability_text": {
+                    "$asa_durability_text": "31%",
+                    "$min_durability": 0.31,
+                    "$max_durability": 0.32,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "32@asa_durability_text": {
+                    "$asa_durability_text": "32%",
+                    "$min_durability": 0.32,
+                    "$max_durability": 0.33,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "33@asa_durability_text": {
+                    "$asa_durability_text": "33%",
+                    "$min_durability": 0.33,
+                    "$max_durability": 0.34,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "34@asa_durability_text": {
+                    "$asa_durability_text": "34%",
+                    "$min_durability": 0.34,
+                    "$max_durability": 0.35,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "35@asa_durability_text": {
+                    "$asa_durability_text": "35%",
+                    "$min_durability": 0.35,
+                    "$max_durability": 0.36,
+                    "$asa_durability_color": [ 1.0, 0.7, 0 ]
+                }
+            },
+            {
+                "36@asa_durability_text": {
+                    "$asa_durability_text": "36%",
+                    "$min_durability": 0.36,
+                    "$max_durability": 0.37,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "37@asa_durability_text": {
+                    "$asa_durability_text": "37%",
+                    "$min_durability": 0.37,
+                    "$max_durability": 0.38,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "38@asa_durability_text": {
+                    "$asa_durability_text": "38%",
+                    "$min_durability": 0.38,
+                    "$max_durability": 0.39,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "39@asa_durability_text": {
+                    "$asa_durability_text": "39%",
+                    "$min_durability": 0.39,
+                    "$max_durability": 0.40,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "40@asa_durability_text": {
+                    "$asa_durability_text": "40%",
+                    "$min_durability": 0.40,
+                    "$max_durability": 0.41,
+                    "$asa_durability_color": [ 1.0, 0.8, 0 ]
+                }
+            },
+            {
+                "41@asa_durability_text": {
+                    "$asa_durability_text": "41%",
+                    "$min_durability": 0.41,
+                    "$max_durability": 0.42,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "42@asa_durability_text": {
+                    "$asa_durability_text": "42%",
+                    "$min_durability": 0.42,
+                    "$max_durability": 0.43,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "43@asa_durability_text": {
+                    "$asa_durability_text": "43%",
+                    "$min_durability": 0.43,
+                    "$max_durability": 0.44,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "44@asa_durability_text": {
+                    "$asa_durability_text": "44%",
+                    "$min_durability": 0.44,
+                    "$max_durability": 0.45,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "45@asa_durability_text": {
+                    "$asa_durability_text": "45%",
+                    "$min_durability": 0.45,
+                    "$max_durability": 0.46,
+                    "$asa_durability_color": [ 1.0, 0.9, 0 ]
+                }
+            },
+            {
+                "46@asa_durability_text": {
+                    "$asa_durability_text": "46%",
+                    "$min_durability": 0.46,
+                    "$max_durability": 0.47,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "47@asa_durability_text": {
+                    "$asa_durability_text": "47%",
+                    "$min_durability": 0.47,
+                    "$max_durability": 0.48,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "48@asa_durability_text": {
+                    "$asa_durability_text": "48%",
+                    "$min_durability": 0.48,
+                    "$max_durability": 0.49,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "49@asa_durability_text": {
+                    "$asa_durability_text": "49%",
+                    "$min_durability": 0.49,
+                    "$max_durability": 0.50,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "50@asa_durability_text": {
+                    "$asa_durability_text": "50%",
+                    "$min_durability": 0.50,
+                    "$max_durability": 0.51,
+                    "$asa_durability_color": [ 1.0, 1.0, 0 ]
+                }
+            },
+            {
+                "51@asa_durability_text": {
+                    "$asa_durability_text": "51%",
+                    "$min_durability": 0.51,
+                    "$max_durability": 0.52,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "52@asa_durability_text": {
+                    "$asa_durability_text": "52%",
+                    "$min_durability": 0.52,
+                    "$max_durability": 0.53,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "53@asa_durability_text": {
+                    "$asa_durability_text": "53%",
+                    "$min_durability": 0.53,
+                    "$max_durability": 0.54,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "54@asa_durability_text": {
+                    "$asa_durability_text": "54%",
+                    "$min_durability": 0.54,
+                    "$max_durability": 0.55,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "55@asa_durability_text": {
+                    "$asa_durability_text": "55%",
+                    "$min_durability": 0.55,
+                    "$max_durability": 0.56,
+                    "$asa_durability_color": [ 0.9, 1.0, 0 ]
+                }
+            },
+            {
+                "56@asa_durability_text": {
+                    "$asa_durability_text": "56%",
+                    "$min_durability": 0.56,
+                    "$max_durability": 0.57,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "57@asa_durability_text": {
+                    "$asa_durability_text": "57%",
+                    "$min_durability": 0.57,
+                    "$max_durability": 0.58,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "58@asa_durability_text": {
+                    "$asa_durability_text": "58%",
+                    "$min_durability": 0.58,
+                    "$max_durability": 0.59,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "59@asa_durability_text": {
+                    "$asa_durability_text": "59%",
+                    "$min_durability": 0.59,
+                    "$max_durability": 0.60,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "60@asa_durability_text": {
+                    "$asa_durability_text": "60%",
+                    "$min_durability": 0.60,
+                    "$max_durability": 0.61,
+                    "$asa_durability_color": [ 0.8, 1.0, 0 ]
+                }
+            },
+            {
+                "61@asa_durability_text": {
+                    "$asa_durability_text": "61%",
+                    "$min_durability": 0.61,
+                    "$max_durability": 0.62,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "62@asa_durability_text": {
+                    "$asa_durability_text": "62%",
+                    "$min_durability": 0.62,
+                    "$max_durability": 0.63,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "63@asa_durability_text": {
+                    "$asa_durability_text": "63%",
+                    "$min_durability": 0.63,
+                    "$max_durability": 0.64,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "64@asa_durability_text": {
+                    "$asa_durability_text": "64%",
+                    "$min_durability": 0.64,
+                    "$max_durability": 0.65,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "65@asa_durability_text": {
+                    "$asa_durability_text": "65%",
+                    "$min_durability": 0.65,
+                    "$max_durability": 0.66,
+                    "$asa_durability_color": [ 0.7, 1.0, 0 ]
+                }
+            },
+            {
+                "66@asa_durability_text": {
+                    "$asa_durability_text": "66%",
+                    "$min_durability": 0.66,
+                    "$max_durability": 0.67,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "67@asa_durability_text": {
+                    "$asa_durability_text": "67%",
+                    "$min_durability": 0.67,
+                    "$max_durability": 0.68,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "68@asa_durability_text": {
+                    "$asa_durability_text": "68%",
+                    "$min_durability": 0.68,
+                    "$max_durability": 0.69,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "69@asa_durability_text": {
+                    "$asa_durability_text": "69%",
+                    "$min_durability": 0.69,
+                    "$max_durability": 0.70,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "70@asa_durability_text": {
+                    "$asa_durability_text": "70%",
+                    "$min_durability": 0.70,
+                    "$max_durability": 0.71,
+                    "$asa_durability_color": [ 0.6, 1.0, 0 ]
+                }
+            },
+            {
+                "71@asa_durability_text": {
+                    "$asa_durability_text": "71%",
+                    "$min_durability": 0.71,
+                    "$max_durability": 0.72,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "72@asa_durability_text": {
+                    "$asa_durability_text": "72%",
+                    "$min_durability": 0.72,
+                    "$max_durability": 0.73,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "73@asa_durability_text": {
+                    "$asa_durability_text": "73%",
+                    "$min_durability": 0.73,
+                    "$max_durability": 0.74,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "74@asa_durability_text": {
+                    "$asa_durability_text": "74%",
+                    "$min_durability": 0.74,
+                    "$max_durability": 0.75,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "75@asa_durability_text": {
+                    "$asa_durability_text": "75%",
+                    "$min_durability": 0.75,
+                    "$max_durability": 0.76,
+                    "$asa_durability_color": [ 0.5, 1.0, 0 ]
+                }
+            },
+            {
+                "76@asa_durability_text": {
+                    "$asa_durability_text": "76%",
+                    "$min_durability": 0.76,
+                    "$max_durability": 0.77,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "77@asa_durability_text": {
+                    "$asa_durability_text": "77%",
+                    "$min_durability": 0.77,
+                    "$max_durability": 0.78,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "78@asa_durability_text": {
+                    "$asa_durability_text": "78%",
+                    "$min_durability": 0.78,
+                    "$max_durability": 0.79,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "79@asa_durability_text": {
+                    "$asa_durability_text": "79%",
+                    "$min_durability": 0.79,
+                    "$max_durability": 0.80,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "80@asa_durability_text": {
+                    "$asa_durability_text": "80%",
+                    "$min_durability": 0.80,
+                    "$max_durability": 0.81,
+                    "$asa_durability_color": [ 0.4, 1.0, 0 ]
+                }
+            },
+            {
+                "81@asa_durability_text": {
+                    "$asa_durability_text": "81%",
+                    "$min_durability": 0.81,
+                    "$max_durability": 0.82,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "82@asa_durability_text": {
+                    "$asa_durability_text": "82%",
+                    "$min_durability": 0.82,
+                    "$max_durability": 0.83,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "83@asa_durability_text": {
+                    "$asa_durability_text": "83%",
+                    "$min_durability": 0.83,
+                    "$max_durability": 0.84,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "84@asa_durability_text": {
+                    "$asa_durability_text": "84%",
+                    "$min_durability": 0.84,
+                    "$max_durability": 0.85,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "85@asa_durability_text": {
+                    "$asa_durability_text": "85%",
+                    "$min_durability": 0.85,
+                    "$max_durability": 0.86,
+                    "$asa_durability_color": [ 0.3, 1.0, 0 ]
+                }
+            },
+            {
+                "86@asa_durability_text": {
+                    "$asa_durability_text": "86%",
+                    "$min_durability": 0.86,
+                    "$max_durability": 0.87,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "87@asa_durability_text": {
+                    "$asa_durability_text": "87%",
+                    "$min_durability": 0.87,
+                    "$max_durability": 0.88,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "88@asa_durability_text": {
+                    "$asa_durability_text": "88%",
+                    "$min_durability": 0.88,
+                    "$max_durability": 0.89,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "89@asa_durability_text": {
+                    "$asa_durability_text": "89%",
+                    "$min_durability": 0.89,
+                    "$max_durability": 0.90,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "90@asa_durability_text": {
+                    "$asa_durability_text": "90%",
+                    "$min_durability": 0.90,
+                    "$max_durability": 0.91,
+                    "$asa_durability_color": [ 0.2, 1.0, 0 ]
+                }
+            },
+            {
+                "91@asa_durability_text": {
+                    "$asa_durability_text": "91%",
+                    "$min_durability": 0.91,
+                    "$max_durability": 0.92,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "92@asa_durability_text": {
+                    "$asa_durability_text": "92%",
+                    "$min_durability": 0.92,
+                    "$max_durability": 0.93,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "93@asa_durability_text": {
+                    "$asa_durability_text": "93%",
+                    "$min_durability": 0.93,
+                    "$max_durability": 0.94,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "94@asa_durability_text": {
+                    "$asa_durability_text": "94%",
+                    "$min_durability": 0.94,
+                    "$max_durability": 0.95,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "95@asa_durability_text": {
+                    "$asa_durability_text": "95%",
+                    "$min_durability": 0.95,
+                    "$max_durability": 0.96,
+                    "$asa_durability_color": [ 0.1, 1.0, 0 ]
+                }
+            },
+            {
+                "96@asa_durability_text": {
+                    "$asa_durability_text": "96%",
+                    "$min_durability": 0.96,
+                    "$max_durability": 0.97,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "97@asa_durability_text": {
+                    "$asa_durability_text": "97%",
+                    "$min_durability": 0.97,
+                    "$max_durability": 0.98,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "98@asa_durability_text": {
+                    "$asa_durability_text": "98%",
+                    "$min_durability": 0.98,
+                    "$max_durability": 0.99,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "99@asa_durability_text": {
+                    "$asa_durability_text": "99%",
+                    "$min_durability": 0.99,
+                    "$max_durability": 1.00,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            },
+            {
+                "100@asa_durability_text": {
+                    "$asa_durability_text": "100%",
+                    "$min_durability": 1.00,
+                    "$max_durability": 1.01,
+                    "$asa_durability_color": [ 0, 1.0, 0 ]
+                }
+            }
+        ]
+    },
+
+  "mainhand_item_aux_id": {
+    "type": "panel",
+            "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "item_aux_info_bind",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "layer": 8,
+    "controls": [
+      { "mainhand_item_aux_id_old@mainhand_item_aux_id_old": {} }
+    ]
+ },
+
+    "mainhand_item_aux_id_old": {
+        "type": "grid",
+        "grid_item_template": "renderers.item_aux_viewer_panel",
+        "grid_dimension_binding": "#hotbar_grid_dimensions",
+        "collection_name": "hotbar_items",
+        "size": [ "100%cm", 0 ],
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "bindings": [
+            {
+                "binding_name": "#hotbar_grid_dimensions",
+                "binding_type": "global"
+            }
+        ]
+    },
+
+    "item_aux_viewer_panel": {
+        "type": "panel",
+        "size": [ 0, 0 ],
+        "bindings": [
+            {
+                "binding_name": "#slot_selected",
+                "binding_name_override": "#visible",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "background@renderers.item_aux_id_viewer_bg": {}
+            }
+        ]
+    },
+
+    "item_aux_id_viewer_bg": {
+        "type": "image",
+        "size": [ "100%c + 8px", 16 ],
+        "offset": [ 4, -20 ],
+        "layer": -5,
+        "texture": "textures/utility_components/bg_utility_ui",
+        "alpha": 0.65,
+        "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            }
+        ],
+        "controls": [
+            {
+                "label@renderers.item_aux_id_viewer_text": {
+                    "offset": [ 0, 0 ]
+                }
+            },
+            {
+                "aux_id_false": {
+                    "type": "label",
+                    "text": "Aux ID: §cUnknown",
+                    "offset": [ 0, 0 ],
+                    "layer": 1,
+                    "shadow": true,
+					"text_alignment": "center",
+                    "font_scale_factor": 1,
+                    "localize": false,
+                    "bindings": [
+                        {
+                            "binding_name": "#item_id_aux",
+                            "binding_type": "collection",
+                            "binding_collection_name": "hotbar_items"
+                        },
+                        {
+                            "binding_type": "view",
+                            "source_property_name": "(#item_id_aux = -1)",
+                            "target_property_name": "#visible"
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+
+    "item_aux_id_viewer_text": {
+        "type": "label",
+        "text": "#text",
+        "shadow": true,
+		"text_alignment": "center",
+        "font_scale_factor": 1,
+        "layer": 1,
+        "localize": false,
+        "bindings": [
+            {
+                "binding_name": "#item_id_aux",
+                "binding_type": "collection",
+                "binding_collection_name": "hotbar_items"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "('Aux ID: §z' + #item_id_aux)",
+                "target_property_name": "#text"
+            },
+            {
+                "binding_type": "view",
+                "source_property_name": "(not (#item_id_aux = -1))",
+                "target_property_name": "#visible"
+            }
+        ]
+    },
+
+  "utility_ui_item_id_viewer": {
+    "type": "panel",
+            "anchor_from": "bottom_left",
+        "anchor_to": "bottom_left",
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "item_aux_info_bind",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "layer": 8,
+    "controls": [
+      { "utility_ui_item_id_viewer_old@utility_ui_item_id_viewer_old": {} }
+    ]
+ },
+
+"utility_ui_item_id_viewer_old": {
+		"type": "grid",
+		"anchor_from": "bottom_left",
+		"anchor_to": "bottom_left",
+		"size": [ "100%cm", 0 ],
+		"grid_item_template": "renderers.utility_ui_item_viewer_panel",
+		"grid_dimension_binding": "#hotbar_grid_dimensions",
+		"collection_name": "hotbar_items",
+		"bindings": [
+			{
+				"binding_name": "#hotbar_grid_dimensions",
+				"binding_type": "global"
+			}
+		]
+	},
+	
+	"utility_ui_item_viewer_panel": {
+		"type": "panel",
+		"size": [ 0, 0 ],
+		"bindings": [
+			{
+				"binding_name": "#slot_selected",
+				"binding_name_override": "#visible",
+				"binding_type": "collection",
+				"binding_collection_name": "hotbar_items"
+			}
+		],
+		"controls": [
+			{
+				"test@utility_ui_item_id_viewer_bg": {
+				}
+			}
+		]
+	},
+	
+	"utility_ui_item_id_viewer_bg": {
+		"type": "image",
+		"size": [
+			"100%c + 8px",
+			16
+		],
+		"offset": [4,-36],
+		"layer": -5,
+		"alpha": 0.65,
+		"anchor_from": "bottom_left",
+		"anchor_to": "bottom_left",
+		"texture": "textures/utility_components/bg_utility_ui",
+		"bindings": [
+			{
+				"binding_name": "#item_id_aux",
+				"binding_type": "collection",
+				"binding_collection_name": "hotbar_items"
+			}
+		],
+		"controls": [
+			{
+				"test2@utility_ui_item_id_viewer_text": {
+				}
+			},
+			{
+				"testybacckaaaaalul": {
+					"type": "label",
+					"font_type": "default",
+					"text": "Item ID: §z§cUnknown",
+					"layer": 1,
+					"shadow": true,
+					"localize": false,
+					"text_alignment": "center",
+					"font_scale_factor": 1,
+					"bindings": [
+						{
+							"binding_name": "#item_id_aux",
+							"binding_type": "collection",
+							"binding_collection_name": "hotbar_items"
+						},
+						{
+							"binding_type": "view",
+							"source_property_name": "(#item_id_aux = -1)",
+							"target_property_name": "#visible"
+						}
+					]
+				}
+			}
+		]
+	},
+	
+	"utility_ui_item_id_viewer_text": {
+		"type": "label",
+		"text": "#text",
+		"text_alignment": "center",
+		"layer": 1,
+		"shadow": true,
+		"font_type": "default",
+		"localize": false,
+		"font_scale_factor": 1,
+		"bindings": [
+			{
+				"binding_name": "#item_id_aux",
+				"binding_type": "collection",
+				"binding_collection_name": "hotbar_items"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "('Item ID: §z' + (#item_id_aux / 65536)",
+				"target_property_name": "#text"
+			},
+			{
+				"binding_type": "view",
+				"source_property_name": "(not (#item_id_aux = -1))",
+				"target_property_name": "#visible"
+			}
+		]
+	},
+
+  "hotbar_elipses_button@common.button": {
+    "$pressed_button_name": "button.hotbar_inventory_button",
+    "$hotbar_elipses_button_size|default": [ 22, 22 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "offset": [ 110, 0 ],
+    "size": "$hotbar_elipses_button_size",
+    "layer": 3,
+    "focus_enabled": false,
+    "sound_volume": 0,
+    "default_focus_precedence": 10,
+    "button_mappings": [
+      {
+        "from_button_id": "button.menu_select",
+        "to_button_id": "$pressed_button_name",
+        "mapping_type": "pressed"
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#inventory_touch_button",
+        "binding_name_override": "#visible",
+        "binding_type": "global"
+      }
+    ]
+  },
+
+    "direction_hud_panel": {
+        "type": "panel",
+        "size": [ 200, 17 ],
+        "offset": "$hud_offset",
+        "$hud_offset": [ 0, -20 ],
+        "anchor_to": "top_middle",
+        "anchor_from": "top_middle",
+        "variables": [ { "requires": "$touch", "$hud_offset": [ 0, 0 ] } ],
+        "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "direction_hud_bind",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+        "controls": [
+            {
+                "direction_hud": {
+                    "type": "custom",
+                    "renderer": "paper_doll_renderer",
+                    "anchor_to": "top_middle",
+                    "anchor_from": "top_middle",
+                    "offset": [ -990.5, -6 ],
+                    "size": [ 39, 39 ],
+                    "layer": 2
+                }
+            },
+            {
+                "background": {
+                    "type": "image",
+                    "anchor_to": "top_middle",
+                    "anchor_from": "top_middle",
+                    "offset": [ -0.5, 22 ],
+                    "size": [ 142, 17 ],
+                    "texture": "textures/utility_components/bg_utility_ui",
+                    "bindings": [ { "binding_type": "view", "source_control_name": "overlay_alpha_slider", "source_property_name": "#slider_value", "target_property_name": "#overlay_alpha_int" }, { "binding_type": "view", "source_property_name": "(#overlay_alpha_int / 500)", "target_property_name": "#overlay_alpha_float" }, { "binding_type": "view", "source_property_name": "#overlay_alpha_float", "target_property_name": "#alpha" } ],
+                    "alpha": 1,
+                    "layer": 0
+                }
+            },
+            {
+                "direction_hud_pointer": {
+                    "type": "image",
+                    "offset": [ 0, 22 ],
+                    "size": [ 1, 17 ],
+                    "texture": "textures/utility_components/stretch_bg_red",
+                    "layer": 1
+                }
+            }
+        ]
+    },
+
+  "offset_panel@common.slider": {
+    "size": [
+        "100% - 30px",
+        "100% - 45px"
+    ],
+    "offset": [
+        0,
+        9999
+    ],
+    "anchor_from": "top_left",
+    "anchor_to": "top_left",
+    "$slider_name": "offset_panel",
+    "$slider_box_size": [
+        "100%",
+        "100%"
+    ],
+    "enabled": false,
+    "bindings": [
+        {
+            "binding_type": "view",
+            "source_control_name": "overlay_alpha_slider_3",
+            "source_property_name": "(#slider_value / (#slider_steps - 1))",
+            "target_property_name": "#slider_value"
+        }
+    ],
+    "controls": [
+        {
+            "slider_box@common.slider_box": {
+                "controls": [
+                    {
+                        "offset_y_panel@common.slider": {// up and down
+                            "slider_direction": "vertical",
+                            "bindings": [
+                                {
+                                    "binding_type": "view",
+                                    "source_control_name": "overlay_alpha_slider_2",
+                                    "source_property_name": "(#slider_value / (#slider_steps - 1))",
+                                    "target_property_name": "#slider_value",
+                                    "resolve_sibling_scope": false
+                                }
+                            ],
+                            "controls": [
+                                {
+                                    "slider_box@common.slider_box": {
+                                        "bindings": [
+                                            {
+        "binding_type": "view",
+        "source_control_name": "paperdoll_bind",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+                                         
+                                            }
+                                        ],
+                                        "controls": [
+                                            {
+                                        
+                                                "live_paperdoll": {
+                                                    "type": "custom",
+                                                    "renderer": "live_player_renderer",
+                                                    "size": [
+                                                        18,
+                                                        18
+                                                    ],
+                                                    "offset": [
+                                                        15,
+                                                        -9984
+                                                    ],
+                                                    "bindings": [
+                                                        {
+        "binding_type": "view",
+        "source_control_name": "paperdoll_bind",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+},
+
+  "armor_hud_bg@hud.panel": {
+          "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "armor_hud_bg_bind",
+        "source_property_name": "(not #toggle_state)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [ { "armor_hud_old@armor_hud_old": {}} ]
+  },
+
+  "armor_hud_old@hud.panel": {
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "armor_hud_bind",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [ { "armor_hud_bg_1@armor_hud_bg_1": {}} ]
+  },
+
+  "armor_hud_bg_1": {
+    "size": [ 20, 66 ],
+    "type": "image",
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "layer": -1,
+
+    "alpha": 0.55,
+    "texture": "textures/utility_components/bg_utility_ui",
+    "offset": [ 120, 0 ]
+ },
+
+  "armorhud_player_renderer": {
+    "renderer": "live_player_renderer",
+    "size": [ 17.5, 17.5 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "layer": 2,
+    "type": "custom",
+    "offset": [ 120, 472 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "armor_hud_bind",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+ },
+
+  "offhand_renderer": { 
+    "renderer": "live_player_renderer",
+    "size": [ 20, 20 ],
+    "anchor_from": "bottom_middle",
+    "anchor_to": "bottom_middle",
+    "layer": 2,
+    "type": "custom",
+    "offset": [ -113, 1001.5 ],
+    "bindings": [
+      {
+        "binding_type": "view",
+        "source_control_name": "offhand_bind",
+        "source_property_name": "#toggle_state",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

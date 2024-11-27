@@ -1,0 +1,18 @@
+{
+    "format_version": "1.8.0",
+    "animations": {
+        "animation.direction_hud_position": {
+            "loop": true,
+            "bones": {
+                "bone": {
+                    "position": [ 1033, 0, 0 ],
+                    "scale": 1
+                },
+                "bone1": {
+                    "position": [ 1033, 0, 0 ],
+                    "scale": 1
+                }
+            }
+        }
+    }
+}

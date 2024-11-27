@@ -1,0 +1,18 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "The Cleanest Experience Of MCBE\nFixed by Pepe\nOriginally by §cHJN",
+        "name": "Utility UI",
+        "uuid": "ff43ae86-bbba-414b-9c5a-1a96c30969bd",
+        "version": [ 0, 0, 1 ],
+        "min_engine_version": [ 1, 18, 0 ]
+    },
+    "modules": [
+        {
+            "description": "The Cleanest Experience Of MCBE\nOriginally by §cHJN",
+            "type": "resources",
+            "uuid": "00e5cbf8-add9-4864-8860-42d539abe9fa",
+            "version": [ 0, 0, 1 ]
+        }
+    ]
+}

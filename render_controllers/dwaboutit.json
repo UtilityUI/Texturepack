@@ -1,0 +1,16 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.utilmodel": {
+      "geometry": "geometry.utilmodel",
+      "materials": [ 
+        { 
+          "*": "Material.default" 
+        } 
+      ],
+      "textures": [ 
+        "texture.default" 
+      ]
+    }
+  }
+}

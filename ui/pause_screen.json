@@ -1,0 +1,126 @@
+{
+  "namespace": "pause",
+
+  "back_icon@hud.image": {
+    "texture": "textures/utility_components/icons/back_icon",
+    "size": [ 16, 16 ]
+ },
+
+  "pause_screen": {
+    "gamepad_cursor": true,
+    "variables": [
+      {
+        "requires": "$ignore_edu_pause",
+        "$screen_content": "pause.important_panel"
+      },
+      {
+        "requires": "(not $ignore_edu_pause)",
+        "$screen_content": "pause.important_panel"
+      }
+    ]
+  },
+
+  "open_toggle@common_toggles.light_ui_toggle_u": {
+    "size": [ "100%", "100%" ],
+    "$button_size_override": [ "100%", "100%" ],
+        
+    "$default_texture": "",
+    "$hover_texture": "",
+    "$pressed_texture": "",
+    "$pressed_no_hover_texture": "",
+    "$locked_texture": "",
+    
+    "$button_type_panel": "",
+    "$radio_toggle_group": false,
+    "$toggle_name": "open_toggle",
+    "$toggle_tab_focus_binding_name": "#open_toggle_focus_precedence",
+    "$toggle_group_default_selected": "$default_selector_toggle_index",
+    "$toggle_tab_focus_binding_type": "global",
+    "$toggle_on_hover_binding_type": "global",
+    "$toggle_on_hover_binding_name": "#toggle_on_hover"
+ },
+
+  "settings_icon_panel": {
+    "type": "panel",
+    "size": [ 22, 22 ],
+    "anchor_from": "top_left",
+    "bindings": [ { "binding_type": "view", "source_control_name": "utility_open_bind_pause", "source_property_name": "(not #toggle_state)", "target_property_name": "#visible" } ],
+    "offset": [ 5, 5 ],
+    "anchor_to": "top_left",
+    "layer": 5,
+    "controls": [
+      { "icon@hud.image": { "texture": "", "size": [ 16, 16 ], "offset": [ 0.5, 0.5 ]  } }
+    ]
+  },
+
+  "open_toggle_default@hud.main_button_toggle": {
+    "$tab_view_binding_name": "utility_open_bind_pause",
+    "size": [ 22, 22 ],
+    
+    "$unchecked_control": "pause.unchecked_control",
+    "$checked_control": "pause.checked_control",
+    "$unchecked_hover_control": "pause.checked_control",
+    "$checked_hover_control": "pause.checked_control",
+    
+    "$toggle_name": "show_panel_button",
+    "bindings": [ { "binding_type": "view", "source_control_name": "utility_open_bind_pause", "source_property_name": "(not #toggle_state)", "target_property_name": "#visible" } ],
+    "anchor_from": "top_left",
+    "offset": [ 5, 5 ],
+    "anchor_to": "top_left",
+    "$toggle_group_forced_index": 2
+  },
+
+  "unchecked_control@hud.image": {
+    "texture": "textures/utility_components/settings_button"
+ },
+
+  "checked_control@hud.image": {
+    "texture": "textures/utility_components/settings_button_hover"
+ },
+
+  "exit_button_pause_new@tooltips_java.tooltips_java_content": {
+    "$pressed_button_name": "button.menu_continue",
+    "size": [ 22, 20 ],
+    "$hover_panel_text": "Exit Mod menu",
+    "offset": [ 5, 4 ],
+    "ignored": "$game_pad",
+    "anchor_from": "top_left",
+    "anchor_to": "top_left"
+  },
+
+  "exit_panel_pause_button": {
+    "type": "panel",
+    "ignored": "$game_pad",
+    "size": [ 300, 195 ],
+    "bindings": [ { "binding_type": "view", "source_control_name": "utility_open_bind_pause", "source_property_name": "#toggle_state", "target_property_name": "#visible" } ],
+    "layer": 8,
+    "controls": [
+      { "exit_button@exit_button_pause_new": { }}
+    ]
+ },
+
+  "important_panel": {
+    "type": "panel",
+    "size": [ "100%", "100%" ],
+    "layer": 1,
+    "controls": [
+      { "exit_panel_pause_button@pause.exit_panel_pause_button": {}},
+      { "pause_screen_content@pause_screen_content": {} },
+      { "settings_icon_panel@settings_icon_panel": {} },
+      { "open_toggle_default@open_toggle_default": {} }
+    ]
+  },
+
+  "pause_screen_content": {
+    "bindings": [ { "binding_type": "view", "source_control_name": "utility_open_bind_pause", "source_property_name": "(not #toggle_state)", "target_property_name": "#visible" } ],
+    "modifications": [
+      {
+        "array_name": "controls",
+        "operation": "insert_back",
+        "value": [
+          { "bg@common.screen_background": { "size": [ "1000%", "1000%" ] } }
+        ]
+      }
+    ]
+  }
+}

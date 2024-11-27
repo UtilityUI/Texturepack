@@ -1,0 +1,18 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.input_indicator",
+				"texture_width": 53,
+				"texture_height": 8,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [ 0, 0.75, 0 ]
+			},
+			"bones": [
+				{ "name": "input_indicator_root", "pivot": [ 0, 0, 0 ], "cubes": [ { "origin": [ -26, -4, 0 ], "size": [ 53, 8, 0 ], "uv": [ 0, 0 ] } ] }
+			]
+		}
+	]
+}

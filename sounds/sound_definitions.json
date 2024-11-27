@@ -1,0 +1,22 @@
+{
+    "wethands.ui": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "customize/custom_1_song",
+          "stream": true,
+          "volume": 0.5
+        }
+      ]
+   },
+    "custom.ui": {
+      "category": "ui",
+      "sounds": [
+        {
+          "name": "customize/custom_2_song",
+          "stream": true,
+          "volume": 0.5
+        }
+      ]
+   }
+}

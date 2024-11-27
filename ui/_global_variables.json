@@ -1,0 +1,48 @@
+{
+  "$song_name": "First Slot §f- §7*:**",
+  "$song_name_2": "Second Slot §f- §7*:**",
+  "$remove_mod_menu_background": false,
+  
+  "$dark_mode": true,
+  "$custom_mode": false,
+  "$vanilla_mode": false,
+  
+  "$is_utility_ui": true,
+  
+  "$armor_bg": false,
+  "$hide_vignette": false,
+  "$entity_detector": false,
+  "$hide_scoreboard": false,
+  "$hide_bossbar": false,
+  "$hide_red_numbers": true,
+  "$hide_bossbar_grid": false,
+  "$safe_zone_checker": false,
+  "$hide_mob_effects": false,
+  "$show_compass": false,
+  "$show_pointer": false,
+  "$smooth_font": false,
+  "$tooltips": true,
+  "$hide_item_text": false,
+  "$title_item_text": false,
+  "$bar_item_text": false,
+  "$cooldown_render": true,
+  
+  "$item_info": false,
+  "$shiny_pots": false,
+  "$hide_chat": false,
+  "$bright_display": false,
+  "$direction_hud": false,
+  "$chat": true,
+  "$paperdoll": false,
+  "$armor_hud": false,
+  "$status_hud": false,
+  "$offhand": false,
+
+    "$1_color_format": [0, 0.2157, 0.651], // Dark Blue
+    "$2_color_format": [0.1176, 0.651, 0], // Dark Green
+    "$3_color_format": [0, 0.6588, 0.5255], // Dark Aqua
+    "$4_color_format": [0.6, 0, 0.0314], // Dark Red
+    "$5_color_format": [0.5647, 0, 0.651], // Dark Purple
+    "$9_color_format": [0.3098, 0.8545, 1], // Blue
+    "$d_color_format": [0.8627, 0.5098, 1]
+}

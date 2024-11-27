@@ -1,0 +1,86 @@
+{
+   "namespace": "tooltips_java",
+
+    "tooltips_java_content_1@tooltips_java.button_1":{
+        "$default_texture":"textures/utility_components/buttons/button_default_transp",
+        "$hover_texture":"textures/utility_components/buttons/button_transp_green",
+        "$pressed_texture":"textures/utility_components/buttons/button_transp_green",
+        "layer":2
+   },
+   
+   "button_1@common.button": {
+      "controls": [
+         {
+            "default@tooltips_java.button_default": {
+              "controls": [ { "icon@hud.msg_icon": {}}]}},
+         {
+            "hover@tooltips_java.button_hover": {
+              "controls": [ { "icon@hud.msg_icon": {  } },{ "hover_text_panel@hud.hover_text_panel": { }} ] } },
+         {
+            "pressed@tooltips_java.button_pressed": {
+              "controls": [ { "icon@hud.msg_icon": { }}, { "hover_text_panel@hud.hover_text_panel": { }} ] } }
+      ]
+   },
+
+    "tooltips_java_content_2@tooltips_java.button_2":{
+        "$default_texture":"textures/utility_components/buttons/button_default_transp",
+        "$hover_texture":"textures/utility_components/buttons/button_transp_green",
+        "$pressed_texture":"textures/utility_components/buttons/button_transp_green",
+        "layer":2
+   },
+   
+   "button_2@common.button": {
+      "controls": [
+         {
+            "default@tooltips_java.button_default": {
+              "controls": [ { "icon@hud.msg_1_icon": {}}]}},
+         {
+            "hover@tooltips_java.button_hover": {
+              "controls": [ { "icon@hud.msg_1_icon": {  } },{ "hover_text_panel@hud.hover_text_panel": { }} ] } },
+         {
+            "pressed@tooltips_java.button_pressed": {
+              "controls": [ { "icon@hud.msg_1_icon": { }}, { "hover_text_panel@hud.hover_text_panel": { }} ] } }
+      ]
+   },
+
+    "tooltips_java_content@tooltips_java.button":{
+        "$default_texture":"textures/utility_components/buttons/button_default_transp",
+        "$hover_texture":"textures/utility_components/buttons/button_transp_green",
+        "$pressed_texture":"textures/utility_components/buttons/button_transp_green",
+        "layer":2
+   },
+   
+   "button@common.button": {
+      "controls": [
+         {
+            "default@tooltips_java.button_default": {
+              "controls": [ { "icon@pause.back_icon": {}}]}},
+         {
+            "hover@tooltips_java.button_hover": {
+              "controls": [ { "icon@pause.back_icon": {  } },{ "hover_text_panel@hud.hover_text_panel": { }} ] } },
+         {
+            "pressed@tooltips_java.button_pressed": {
+              "controls": [ { "icon@pause.back_icon": { }},{ "hover_text_panel@hud.hover_text_panel": { }} ] } }
+      ]
+   },
+
+   "button_texture": {
+      "type": "image",
+      "$default|default": false,
+      "$hover|default": false,
+      "$pressed|default": false
+   },
+   
+   "button_default@tooltips_java.button_texture": {
+      "$default": true,
+      "texture": "$default_texture"
+   },
+   "button_hover@tooltips_java.button_texture": {
+      "$hover": true,
+      "texture": "$hover_texture"
+   },
+   "button_pressed@tooltips_java.button_texture": {
+      "$pressed": true,
+      "texture": "$pressed_texture"
+   }
+}

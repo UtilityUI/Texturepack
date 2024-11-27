@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"render_controllers": {
+		"controller.render.hud_input_indicator": {
+			"arrays": {
+				"textures": {
+					"array.indicators": [
+						// ORDER OF PRECEDENCE IS TOP TO BOTTOM
+						// this means that if you are jumping AND sneaking, the indicator will show that you are jumping
+						"texture.jumping",
+						"texture.sneaking",
+						"texture.swimming",
+						"texture.on_fire",
+						"texture.sprinting",
+						"texture.moving",
+						"texture.standing"
+					]
+				}
+			},
+			"geometry": "geometry.input_indicator",
+			"materials": [ { "*": "material.default" } ],
+			"textures": [ "array.indicators[v.input_idx]" ],
+			"is_hurt_color": {},
+			"on_fire_color": {},
+			"light_color_multiplier": 1.15,
+			"ignore_lighting": true
+		}
+	}
+}
