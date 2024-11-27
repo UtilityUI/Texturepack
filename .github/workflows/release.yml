@@ -1,5 +1,8 @@
 name: Manual Release Push
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch: # Allows triggering from the Actions UI.
 
