@@ -35,6 +35,7 @@ jobs:
 
       # Step 4: Create a GitHub Release
       - name: Create Release
+        id: create-release
         uses: actions/create-release@v1
         with:
           tag_name: v${{ env.MAJOR_VERSION }}.${{ env.MINOR_VERSION }}
