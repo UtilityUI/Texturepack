@@ -1,64 +1,74 @@
 name: Bug Report
-description: File a bug report.
+description: Report a Bug.
 title: "[Bug]: "
 labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to fill out this bug report and helping to improve Utlity UI!
   - type: input
-    id: contact
+    id: discord
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
+      label: Discord Username
+      description: If you have discord, we would appreciate it if we could contact you.
+      placeholder: ex. @wumpus
     validations:
       required: false
-  - type: textarea
-    id: what-happened
+  - type: input
+    id: xbox
     attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Microsoft Username
+      description: Please provide you Microsoft Account Name, this is your gamertag or your Minecraft Name.
+      placeholder: ex. creperozelot
     validations:
       required: true
   - type: dropdown
-    id: version
+    id: platform
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Platform
+      description: On which platform did you play Minecraft using this pack?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - Windows
+        - Mac OS
+        - Linux
+        - Android
+        - IOS
+        - Other
       default: 0
     validations:
       required: true
-  - type: dropdown
-    id: browsers
+  - type: input
+    id: os_version
     attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+      label: Os Version
+      description: What is your OS Version?
+      placeholder: ex. Windows 11 23H2
+    validations:
+      required: true
+  - type: input
+    id: mc_version
+    attributes:
+      label: Minecraft Version
+      description: On which version did you play Minecraft using this pack?
+      placeholder: ex. 1.21.50 Release or 1.22.40-Snapshot Beta
+    validations:
+      required: true
   - type: textarea
-    id: logs
+    id: bug_desc
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+      label: What happend? / What did not work?
+      description: "Please tell us what wasn't working, if possible include logs or your settings."
+      render: markdown
   - type: checkboxes
-    id: terms
+    id: valid
     attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      label: Please check and validate all checkboxes befor your submittion.
+      description: By submitting this issue ... 
       options:
-        - label: I agree to follow this project's Code of Conduct
+        - label: I aggree that I searched for dupplicate issue reports.
+          required: true
+        - label: I aggree that I allow Utility Club processing my data provide in this form.
+          required: true
+        - label: I accept that I have filled out this form truthfully and as well as possible
           required: true
